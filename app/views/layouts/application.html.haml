@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ManyToMany
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    -if notice || alert
+      .alert.alert-warning.alert-dismissible.fade.show{role: "alert"}
+        = notice
+        = alert
+        %button.close{"aria-label" => "Close", "data-dismiss" => "alert", type: "button"}
+          %span{"aria-hidden" => "true"} ×
+    .container
+      .row
+        .col
+          = yield
