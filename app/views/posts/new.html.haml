@@ -1,0 +1,23 @@
+.container.mt-5
+  .row.justify-content-md-center
+    .col-12.col-sm-6
+      %h1 Editar nuevo Post
+      = form_for @post do |f|
+        .row
+          .form-group.col-6
+            = f.label :name
+            = f.text_field :name, class: 'form-control', placeholder: 'Titulo del post'
+          .form-group.col-6
+            = f.label :status
+            = f.select :status, Post::STATUSES,{}, {class: 'form-control'}
+        .form-group.form-heck.category-choices
+          = f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |cat_boxes|
+            = cat_boxes.label(class: 'form-check-label category-choice')
+            = cat_boxes.check_box(class: 'd-none')
+
+        .form-group
+          = f.label :content
+          = f.text_area :content, class: 'form-control', placeholder: 'Contenido'
+        .form-group
+          =f.submit 'Save your Post', class: 'btn btn-primary btn-block'
+

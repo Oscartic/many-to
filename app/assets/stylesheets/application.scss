@@ -15,3 +15,32 @@
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+.category-choices {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  span {
+    font-weight: 600;
+  }
+  .category-choice {
+    background: #b7b7b7;
+    border-radius: 5px;
+    flex: 0 0 30%;
+    margin: 0.3em 0;
+    padding: 20px;
+    text-align: center;
+    opacity: 0.4;
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+    &.active {
+      background: #186f3f;
+      color: white;
+      opacity: 1;
+    }
+  }
+}
